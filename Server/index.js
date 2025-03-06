@@ -18,6 +18,8 @@ app.use(
       "https://admin.shrirattantraders.com",
       "https://shrirattantraders.com",
       "https://www.shrirattantraders.com",
+      "http://shrirattantraders.com",
+      "http://www.shrirattantraders.com",
     ],
     // credentials: true,
     methods: "GET,POST,DELETE,PATCH",
