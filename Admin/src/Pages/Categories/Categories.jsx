@@ -53,37 +53,43 @@ const Categories = () => {
         </Link>
       </div>
       <div className="table-responsive">
-        <table className="table table-bordered table-hover mt-4">
-          <thead className="table-dark">
-            <tr>
-              <th>#</th>
-              <th>Categories</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {categories.map((data, index) => (
-              <tr key={data._id} className="align-middle">
-                <td>{index + 1}</td>
-                <td className="fw-semibold">{data.name}</td>
-                <td>
-                  <button
-                    className="btn btn-primary btn-sm me-2"
-                    onClick={() => handleEdit(data._id)} // Call handleEdit with ID
-                  >
-                    <i className="bi bi-pencil-square"></i> Edit
-                  </button>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={() => handleDelete(data._id)} // Delete with ID
-                  >
-                    <i className="bi bi-trash3"></i> Delete
-                  </button>
-                </td>
+        {categories.length > 0 ? (
+          <table className="table table-bordered table-hover mt-4">
+            <thead className="table-dark">
+              <tr>
+                <th>#</th>
+                <th>Categories</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {categories.map((data, index) => (
+                <tr key={data._id} className="align-middle">
+                  <td>{index + 1}</td>
+                  <td className="fw-semibold">{data.name}</td>
+                  <td>
+                    <button
+                      className="btn btn-primary btn-sm me-2"
+                      onClick={() => handleEdit(data._id)}
+                    >
+                      <i className="bi bi-pencil-square"></i> Edit
+                    </button>
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => handleDelete(data._id)}
+                    >
+                      <i className="bi bi-trash3"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div className="text-center mt-4">
+            <h5 className="text-muted">No data present</h5>
+          </div>
+        )}
         {error && <div className="alert alert-danger mt-3">{error}</div>}
       </div>
     </div>

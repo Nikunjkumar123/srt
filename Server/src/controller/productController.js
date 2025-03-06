@@ -7,7 +7,8 @@ const mongoose = require('mongoose')
 const allproduct = async (req, res) => {
   try {
     const products = await productModel.find().populate("category");
-    if (!products.length) return res.status(404).json({ message: "No products found" });
+    console.log(products)
+    // if (!products.length) return res.status(404).json({ message: "No products found" });
     return res.status(200).json({ products });
   } catch (error) {
     return res.status(500).json({ error: error.message });

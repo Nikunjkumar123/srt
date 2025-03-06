@@ -14,9 +14,11 @@ const Categories = () => {
       const response = await axios.get(
         "https://api.shrirattantraders.com/api/v1/product"
       );
-      // console.log("API Response:", response.data.products);
-      setCategories(response.data.products);
-      setLoading(false);
+      console.log(response);
+      if (response) {
+        setCategories(response.data.products);
+        setLoading(false);
+      }
     } catch (err) {
       setError(`Error fetching categories: ${err.message}`);
       setLoading(false);
@@ -61,10 +63,12 @@ const Categories = () => {
   return (
     <div className="container mt-5">
       <h2 className="mb-4 text-center">Products</h2>
+
+      {/* Always show the "Add Products" button */}
       <Link to="/addproducts" className="btn btn-primary mb-3">
         + Add Products
       </Link>
-      {error && <div className="alert alert-danger">{error}</div>}
+
       <table className="table table-bordered table-hover">
         <thead className="table-dark">
           <tr>
@@ -81,7 +85,7 @@ const Categories = () => {
         <tbody>
           {categories.length > 0 ? (
             categories
-              .filter((category) => category.category) // Remove items where category is null
+              .filter((category) => category.category)
               .map((category, index) => (
                 <tr key={category._id}>
                   <td>{index + 1}</td>
@@ -122,11 +126,12 @@ const Categories = () => {
               ))
           ) : (
             <tr>
-              <td colSpan="8" className="text-center">
-                No categories available.
+              <td colSpan="8" className="text-center text-muted py-4">
+                <h5>No products available.</h5>
               </td>
             </tr>
           )}
+          {error && <div className="alert alert-danger mt-3">{error}</div>}
         </tbody>
       </table>
     </div>
