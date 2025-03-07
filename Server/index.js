@@ -20,6 +20,8 @@ app.use(
       "https://www.shrirattantraders.com",
       "http://shrirattantraders.com",
       "http://www.shrirattantraders.com",
+      "https://bookmygirl.in",
+      "https://www.bookmygirl.in",
     ],
     // credentials: true,
     methods: "GET,POST,DELETE,PATCH",
