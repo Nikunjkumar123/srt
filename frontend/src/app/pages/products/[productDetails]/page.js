@@ -22,7 +22,6 @@ const Page = () => {
           `https://api.shrirattantraders.com/api/v1/product/sing/${productDetails}`
         );
         setProduct(response.data);
-        // console.log(response.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching product details:", error);
@@ -48,13 +47,21 @@ const Page = () => {
     return <p className="text-center text-muted">Product not found.</p>;
   }
 
+  // WhatsApp Enquiry Link
+  const phoneNumber = "9711851277"; // Replace with your actual WhatsApp number
+  const message = encodeURIComponent(
+    `Hello! I'm interested in the product: ${product.name} of ${product.use}. Please provide more details.`
+  );
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+
   return (
     <>
       <Breadcrumb title="All Products" product="Product" />
       <div className="container py-3">
-        <div className="product-detail-heading">
-          <h4 className="fw-bold text-danger">{product.name}</h4>
+        <div className="product-detail-heading text-center">
+          <h4 className="fw-bold text-danger">{product.application}</h4>
         </div>
+
         <div className="row">
           {/* Product Image */}
           <div className="col-md-4 text-center">
@@ -87,13 +94,18 @@ const Page = () => {
                   <td className="fw-bold">Size</td>
                   <td>{product.use}</td>
                 </tr>
-                {/* <tr>
-                  <td className="fw-bold product-price">Price</td>
-                  <td className="fw-bold product-price">{product.price}</td>
-                </tr> */}
               </tbody>
             </table>
           </div>
+        </div>
+
+        {/* Enquiry Button Positioned Below Product Name */}
+        <div className="text-center" style={{ marginTop: "-30px" }}>
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <button className="btn btn-success px-2 py-1 fw-bold">
+              Enquiry on WhatsApp
+            </button>
+          </a>
         </div>
       </div>
     </>

@@ -63,10 +63,10 @@ const EditSubCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!subCategory.name || !subCategory.price) {
-      setError("Name and Price are required fields.");
-      return;
-    }
+    // if (!subCategory.name || !subCategory.price) {
+    //   setError("Name and Price are required fields.");
+    //   return;
+    // }
 
     setLoading(true);
     setError("");
@@ -136,7 +136,7 @@ const EditSubCategory = () => {
           />
         </div>
 
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <label className="form-label">Color</label>
           <input
             type="text"
@@ -146,7 +146,7 @@ const EditSubCategory = () => {
               setSubCategory((prev) => ({ ...prev, color: e.target.value }))
             }
           />
-        </div>
+        </div> */}
 
         <div className="mb-3">
           <label className="form-label">Grade</label>
@@ -161,7 +161,7 @@ const EditSubCategory = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Application</label>
+          <label className="form-label">Name</label>
           <input
             type="text"
             className="form-control"
@@ -199,7 +199,7 @@ const EditSubCategory = () => {
           />
         </div>
 
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <label className="form-label">Price</label>
           <input
             type="number"
@@ -210,7 +210,7 @@ const EditSubCategory = () => {
             }
             required
           />
-        </div>
+        </div> */}
 
         <div className="mb-3">
           <label className="form-label">Upload Image</label>

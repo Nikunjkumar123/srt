@@ -74,8 +74,8 @@ const Categories = () => {
           <tr>
             <th>#</th>
             <th>Category</th>
-            <th>Brand</th>
-            <th>Grade</th>
+            <th>Name</th>
+            <th>Description</th>
             <th>Type</th>
             <th>Size</th>
             <th>Image</th>
@@ -90,7 +90,7 @@ const Categories = () => {
                 <tr key={category._id}>
                   <td>{index + 1}</td>
                   <td>{category.category?.name || "No Category"}</td>
-                  <td>{category.name}</td>
+                  <td>{category.application}</td>
                   <td>{category.description}</td>
                   <td>{category.type}</td>
                   <td>{category.use}</td>

@@ -15,6 +15,7 @@ app.use(
     origin: [
       "http://localhost:3003",
       "http://localhost:3000",
+      "http://localhost:3005",
       "https://admin.shrirattantraders.com",
       "https://shrirattantraders.com",
       "https://www.shrirattantraders.com",

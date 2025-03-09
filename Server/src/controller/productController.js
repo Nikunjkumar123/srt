@@ -29,7 +29,7 @@ const addproduct = async (req, res) => {
     }
 
     const { name, description, color, temp, application, use, type, price, category } = req.body;
-    if (!name || !price || !category) return res.status(400).json({ message: "Missing required fields" });
+    // if (!name || !price || !category) return res.status(400).json({ message: "Missing required fields" });
 
     const product = await productModel.create({ name, image, description, color, temp, application, use, type, price, category });
 

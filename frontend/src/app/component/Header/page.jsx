@@ -61,7 +61,9 @@ const Header = () => {
               <div className="header-details">
                 <p>
                   <i className="bi bi-envelope"></i>&nbsp;
-                  <a href="mailto:Info@gmail.com">Info@gmail.com</a>
+                  <a href="mailto:srtlubricants@gmail.com">
+                    srtlubricants@gmail.com
+                  </a>
                 </p>
                 <p>
                   <i className="bi bi-telephone-outbound"></i> &nbsp;

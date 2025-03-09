@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true, // Ensure products have names
+        // required: true, // Ensure products have names
     },
     image: {
         type: String,
-        required: true, // Ensure products have an image
+        // required: true, // Ensure products have an image
     },
     description: {
         type: String,
-        default: "", // Avoid undefined issues
+        // default: "", // Avoid undefined issues
     },
     color: {
         type: String,
@@ -35,7 +35,7 @@ const productSchema = new mongoose.Schema({
     },
     price: { // Changed "Price" to lowercase and Number type
         type: Number,
-        required: true, // Price should always be provided
+        // required: true, // Price should always be provided
     },
     category: {
         type: mongoose.Types.ObjectId,

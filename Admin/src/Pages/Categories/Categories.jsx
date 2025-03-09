@@ -10,9 +10,7 @@ const Categories = () => {
 
   const gettingCategories = async () => {
     try {
-      const response = await axios.get(
-        "https://api.shrirattantraders.com/api/v1/category"
-      );
+      const response = await axios.get("https://api.shrirattantraders.com/api/v1/category");
       setCategories(response.data.data);
       // console.log(response.data.categories);
     } catch (error) {

@@ -44,17 +44,7 @@ const AddProduct = () => {
   // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      !productName ||
-      !image ||
-      !description ||
-      !color ||
-      !temp ||
-      !application ||
-      !price ||
-      !use ||
-      !selectedCategory
-    ) {
+    if (!application) {
       setError("Please fill all fields");
       return;
     }
@@ -126,7 +116,7 @@ const AddProduct = () => {
               </select>
             </div>
 
-            {/* Product Name */}
+            {/* Brand Name */}
             <div className="mb-3">
               <label htmlFor="productName" className="form-label">
                 Brand
@@ -158,7 +148,7 @@ const AddProduct = () => {
               ></textarea>
             </div>
 
-            {/* Description */}
+            {/* Type */}
             <div className="mb-3">
               <label htmlFor="description" className="form-label">
                 Type
@@ -175,7 +165,7 @@ const AddProduct = () => {
             </div>
 
             {/* Color */}
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label htmlFor="color" className="form-label">
                 Color
               </label>
@@ -188,7 +178,7 @@ const AddProduct = () => {
                 onChange={(e) => setColor(e.target.value)}
                 required
               />
-            </div>
+            </div> */}
 
             {/* Temperature */}
             <div className="mb-3">
@@ -209,7 +199,7 @@ const AddProduct = () => {
             {/* Application */}
             <div className="mb-3">
               <label htmlFor="application" className="form-label">
-                Application
+                Name
               </label>
               <input
                 type="text"
@@ -223,7 +213,7 @@ const AddProduct = () => {
             </div>
 
             {/* Price */}
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label htmlFor="price" className="form-label">
                 Price
               </label>
@@ -236,7 +226,7 @@ const AddProduct = () => {
                 onChange={(e) => setPrice(e.target.value)}
                 required
               />
-            </div>
+            </div> */}
 
             {/* Use */}
             <div className="mb-3">
