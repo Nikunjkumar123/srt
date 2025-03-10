@@ -48,7 +48,7 @@ const Header = () => {
     if (typeof window !== "undefined") {
       localStorage.setItem("selectedCategoryId", categoryId); // Store in local storage
       router.push(`/pages/category/${categoryId}`);
-      // Navigate to products page
+      setIsOpen(false); // Close dropdown on selection
     }
   };
 
@@ -149,7 +149,11 @@ const Header = () => {
                       </ul>
                     </>
                   ) : (
-                    <Link className="nav-link" href={item.path}>
+                    <Link
+                      className="nav-link"
+                      href={item.path}
+                      onClick={() => setIsOpen(false)} // Close on link click
+                    >
                       {item.name}
                     </Link>
                   )}

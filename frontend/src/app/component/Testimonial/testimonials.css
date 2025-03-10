@@ -47,7 +47,7 @@
 
 .testimonial-description {
   font-size: 1em;
-  padding: 50px 10px 10px 30px;
+  padding: 30px 10px 10px 30px;
   margin-top: 10px;
   background-color: #ffffff;
   border-radius: 5px;
@@ -55,7 +55,7 @@
   text-align: left;
   position: relative;
   clip-path: polygon(0% 0%, 100% 19%, 100% 100%, 0% 100%);
-  height: 100%;
+  height: 120px;
 }
 
 .testimonial-description blockquote {

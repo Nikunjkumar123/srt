@@ -75,8 +75,8 @@ const Page = () => {
       <div className="container my-5">
         <h2 className="text-center text-danger">Products</h2>
         <p className="text-center">
-          Our premium bike engine oils help maintain engine health, reduce
-          friction, and enhance performance.
+          Our premium Products help maintain engine health, reduce friction, and
+          enhance performance.
         </p>
 
         <div className="row">
@@ -84,7 +84,7 @@ const Page = () => {
             products.map((product, index) => (
               <div
                 key={product.id || index}
-                className="col-lg-3 col-md-4 col-sm-6 mb-4"
+                className="col-lg-3 col-md-4 col-sm-6 col-6 mb-4"
               >
                 <Link
                   href={`/pages/products/${product._id}`}
@@ -101,7 +101,7 @@ const Page = () => {
                       />
                     </div>
                     <div className="product-card-body">
-                      <h5 className="product-title">{product.name}</h5>
+                      <h5 className="product-title">{product.application}</h5>
                       <p className="product-category">{product.description}</p>
                       <button className="btn btn-danger btn-sm">
                         Know More

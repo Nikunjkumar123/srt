@@ -15,12 +15,10 @@ const Page = () => {
         const response = await axios.get(
           "https://api.shrirattantraders.com/api/v1/product"
         );
-        // console.log("API Response:", response.data);
 
-        if (Array.isArray(response.data)) {
-          setItems(response.data);
-        } else if (Array.isArray(response.data.products)) {
-          setItems(response.data.products);
+        const products = response.data?.products ?? response.data;
+        if (Array.isArray(products)) {
+          setItems(products);
         } else {
           console.error("Unexpected API response structure:", response.data);
           setItems([]);
@@ -43,58 +41,44 @@ const Page = () => {
               Our <span className="highlight">Products</span>
             </h2>
           </div>
-          {/* <div className="row">
-                        {items.length > 0 ? (
-                            items.map((item, index) => (
-                                <div key={item.id || item._id || index} className="col-md-3 mb-4">
-                                    <div className="item-card p-3 text-center">
-                                        <img
-                                            src={item.image}
-                                            alt={item.name}
-                                            className="item-image img-fluid"
-                                        />
-                                        <div className="item-details mt-2">
-                                            <h5 className="item-title">{item.name}</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        ) : (
-                            <p className="no-items text-center">No items available</p>
-                        )}
-                    </div> */}
           <div className="row">
             {items.length > 0 ? (
               items.map((product, index) => (
                 <div
-                  key={product.id || index}
-                  className="col-lg-3 col-md-4 col-sm-6 mb-4"
+                  key={product._id || index}
+                  className="col-md-3 col-sm-6 col-6 h-100 mb-4"
                 >
-                  <Link
-                    href={`/pages/products/${product._id}`}
-                    className="text-decoration-none"
-                  >
-                    <div className="product-bg text-center shadow-sm rounded p-3">
-                      <div className="product-img rounded-top">
-                        <Image
-                          src={product.image || "/fallback-image.png"}
-                          alt={product.name}
-                          width={150}
-                          height={200}
-                          className="img-fluid"
-                        />
-                      </div>
-                      <div className="product-card-body">
-                        <h5 className="product-title">{product.name}</h5>
-                        <p className="product-category">
-                          {product.description}
-                        </p>
-                        <button className="btn btn-danger btn-sm">
-                          Know More
-                        </button>
-                      </div>
+                  <div className="products-card card shadow-lg border-0 position-relative">
+                    {/* Fancy SRT Tag */}
+                    <div className="srt-tag">SRT</div>
+
+                    <div className="text-center">
+                      <img
+                        src={product.image || "/fallback-image.png"}
+                        className="products-image"
+                        alt={product.name || "Product Image"}
+                      />
                     </div>
-                  </Link>
+                    <div className="product-card-body text-center">
+                      <h5 className="products-name">
+                        {product.application || "No Name"}
+                      </h5>
+                      <p className="products-description">
+                        {product.description
+                          ? product.description
+                              .split(" ")
+                              .slice(0, 5)
+                              .join(" ") + "..."
+                          : "No description available"}
+                      </p>
+                      <Link
+                        href={`/pages/products/${product._id}`}
+                        className="products-button btn btn-danger fw-bold px-4 py-2"
+                      >
+                        Learn More
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               ))
             ) : (

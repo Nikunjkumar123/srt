@@ -44,7 +44,6 @@ const testimonials = [
   },
 ];
 
-
 const Testimonials = () => {
   const settings = {
     dots: true,
@@ -52,7 +51,7 @@ const Testimonials = () => {
     speed: 700,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows: false,
@@ -75,7 +74,11 @@ const Testimonials = () => {
   return (
     <div className="testimonial-container">
       <div className="text-center">
-        <h2 className="section-title mb-3">What Our Clients <span className="highlight mb-0 text-white">Say</span></h2></div>
+        <h2 className="section-title mb-3">
+          What Our Clients{" "}
+          <span className="highlight mb-0 text-white">Say</span>
+        </h2>
+      </div>
       <div className="container">
         <div className="testimonial-slider">
           <Slider {...settings}>
@@ -93,11 +96,22 @@ const Testimonials = () => {
                   </div>
                   <div className="testimonial-rating">
                     {Array.from({ length: testimonial.rating }, (_, index) => (
-                      <i key={index} style={{ color: "gold" }} className="bi bi-star-fill"></i>
+                      <i
+                        key={index}
+                        style={{ color: "gold" }}
+                        className="bi bi-star-fill"
+                      ></i>
                     ))}
                   </div>
                   <div className="testimonial-description">
-                    <blockquote>{testimonial.feedback}</blockquote>
+                    <blockquote>
+                      {testimonial.feedback.split(" ").length > 20
+                        ? testimonial.feedback
+                            .split(" ")
+                            .slice(0, 10)
+                            .join(" ") + "..."
+                        : testimonial.feedback}
+                    </blockquote>
                   </div>
                 </div>
                 {/* <p className="testimonial-feedback">"{testimonial.feedback}"</p> */}

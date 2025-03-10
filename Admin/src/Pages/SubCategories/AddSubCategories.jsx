@@ -64,10 +64,7 @@ const AddProduct = () => {
     formData.append("image", image);
 
     try {
-      await axios.post(
-        "https://api.shrirattantraders.com/api/v1/product",
-        formData
-      );
+      await axios.post("https://api.shrirattantraders.com/api/v1/product", formData);
       setLoading(false);
       alert("Product added successfully!");
       setProductName("");

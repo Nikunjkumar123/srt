@@ -18,6 +18,7 @@ const Page = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
+        // alert(productDetails);
         const response = await axios.get(
           `https://api.shrirattantraders.com/api/v1/product/sing/${productDetails}`
         );
@@ -62,7 +63,7 @@ const Page = () => {
           <h4 className="fw-bold text-danger">{product.application}</h4>
         </div>
 
-        <div className="row">
+        <div className="row align-items-center">
           {/* Product Image */}
           <div className="col-md-4 text-center">
             <Image
@@ -100,7 +101,7 @@ const Page = () => {
         </div>
 
         {/* Enquiry Button Positioned Below Product Name */}
-        <div className="text-center" style={{ marginTop: "-30px" }}>
+        <div className="text-center">
           <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
             <button className="btn btn-success px-2 py-1 fw-bold">
               Enquiry on WhatsApp
